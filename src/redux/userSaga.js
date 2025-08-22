@@ -77,7 +77,7 @@
 //     }
 //     const response = yield call(
 //       axios.get,
-//       `http://localhost:5000/api/admin/users?${queryParams.toString()}`,
+//       `https://averycare-backend.onrender.com/api/admin/users?${queryParams.toString()}`,
 //       { headers: { Authorization: `Bearer ${token}` } }
 //     );
 //     const { users, totalPages, totalUsers } = response.data;
@@ -102,7 +102,7 @@
 //     if (!token) throw new Error("No authorization token found");
 //     const response = yield call(
 //       axios.get,
-//       `http://localhost:5000/api/admin/user/${action.payload}`,
+//       `https://averycare-backend.onrender.com/api/admin/user/${action.payload}`,
 //       {
 //         headers: {
 //           Authorization: `Bearer ${token}`,
@@ -122,7 +122,7 @@
 //     if (!token) throw new Error("No authorization token found");
 //     yield call(
 //       axios.delete,
-//       `http://localhost:5000/api/admin/user/${action.payload}`,
+//       `https://averycare-backend.onrender.com/api/admin/user/${action.payload}`,
 //       { headers: { Authorization: `Bearer ${token}` } }
 //     );
 //     yield put(deleteUserSuccess(action.payload));
@@ -160,7 +160,7 @@
 //     if (page) params.append("page", page);
 //     if (limit) params.append("limit", limit);
 //     const queryString = params.toString();
-//     const url = `http://localhost:5000/api/admin/familyMembers${queryString ? `?${queryString}` : ""}`;
+//     const url = `https://averycare-backend.onrender.com/api/admin/familyMembers${queryString ? `?${queryString}` : ""}`;
 //     const response = yield call(axios.get, url, {
 //       headers: { Authorization: `Bearer ${token}` },
 //     });
@@ -185,7 +185,7 @@
 //     const { id, token } = action.payload; // :white_check_mark: Correct destructuring
 //     const { data } = yield call(
 //       axios.get,
-//       `http://localhost:5000/api/admin/familyMember/${id}`,
+//       `https://averycare-backend.onrender.com/api/admin/familyMember/${id}`,
 //       {
 //         headers: { Authorization: `Bearer ${token}` },
 //       }
@@ -205,7 +205,7 @@
 //     if (!token) throw new Error("No authorization token found");
 //     yield call(
 //       axios.delete,
-//       `http://localhost:5000/api/admin/familyMember/${action.payload}`,
+//       `https://averycare-backend.onrender.com/api/admin/familyMember/${action.payload}`,
 //       { headers: { Authorization: `Bearer ${token}` } }
 //     );
 //     yield put(deleteFamilyMemberSuccess(action.payload));
@@ -227,7 +227,7 @@
 //       Object.entries(action.payload || {}).filter(([_, v]) => v !== "" && v !== null && v !== undefined)
 //     );
 //     const queryParams = new URLSearchParams(cleanPayload);
-//     const url = `http://localhost:5000/api/admin/scheduledCalls`;
+//     const url = `https://averycare-backend.onrender.com/api/admin/scheduledCalls`;
 //     // API call
 //     const response = yield call(axios.get, url, {
 //       headers: { Authorization: `Bearer ${token}` },
@@ -247,7 +247,7 @@
 //      if (!token) throw new Error("No authorization token found");
 //      yield call(
 //       axios.delete,
-//       `http://localhost:5000/api/admin/deleteScheduledCall/${action.payload}`,
+//       `https://averycare-backend.onrender.com/api/admin/deleteScheduledCall/${action.payload}`,
 //       { headers: { Authorization: `Bearer ${token}` } }
 //     );
 //     yield put(deleteScheduledCallSuccess(action.payload));
@@ -337,7 +337,7 @@ function* fetchUsersSaga(action) {
         }
         const response = yield call(
             axios.get,
-            `http://localhost:5000/api/admin/users?${queryParams.toString()}`, { headers: { Authorization: `Bearer ${token}` } }
+            `https://averycare-backend.onrender.com/api/admin/users?${queryParams.toString()}`, { headers: { Authorization: `Bearer ${token}` } }
         );
         const { users, totalPages, totalUsers } = response.data;
         yield put(
@@ -361,7 +361,7 @@ function* fetchUserDetailSaga(action) {
         if (!token) throw new Error("No authorization token found");
         const response = yield call(
             axios.get,
-            `http://localhost:5000/api/admin/user/${action.payload}`, {
+            `https://averycare-backend.onrender.com/api/admin/user/${action.payload}`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
@@ -379,7 +379,7 @@ function* deleteUserSaga(action) {
         if (!token) throw new Error("No authorization token found");
         yield call(
             axios.delete,
-            `http://localhost:5000/api/admin/user/${action.payload}`, { headers: { Authorization: `Bearer ${token}` } }
+            `https://averycare-backend.onrender.com/api/admin/user/${action.payload}`, { headers: { Authorization: `Bearer ${token}` } }
         );
         yield put(deleteUserSuccess(action.payload));
     } catch (error) {
@@ -417,7 +417,7 @@ function* fetchFamilyMembersSaga(action) {
         if (page) params.append("page", page);
         if (limit) params.append("limit", limit);
         const queryString = params.toString();
-        const url = `http://localhost:5000/api/admin/familyMembers${queryString ? `?${queryString}` : ""}`;
+        const url = `https://averycare-backend.onrender.com/api/admin/familyMembers${queryString ? `?${queryString}` : ""}`;
         const response = yield call(axios.get, url, {
             headers: { Authorization: `Bearer ${token}` },
         });
@@ -442,7 +442,7 @@ function* fetchSingleFamilyMemberSaga(action) {
         const { id, token } = action.payload;
         const { data } = yield call(
             axios.get,
-            `http://localhost:5000/api/admin/familyMember/${id}`, {
+            `https://averycare-backend.onrender.com/api/admin/familyMember/${id}`, {
                 headers: { Authorization: `Bearer ${token}` },
             }
         );
@@ -462,7 +462,7 @@ function* deleteFamilyMemberSaga(action) {
         if (!token) throw new Error("No authorization token found");
         yield call(
             axios.delete,
-            `http://localhost:5000/api/admin/familyMember/${action.payload}`, { headers: { Authorization: `Bearer ${token}` } }
+            `https://averycare-backend.onrender.com/api/admin/familyMember/${action.payload}`, { headers: { Authorization: `Bearer ${token}` } }
         );
         yield put(deleteFamilyMemberSuccess(action.payload));
     } catch (error) {
@@ -481,7 +481,7 @@ function* fetchScheduledCallsSaga(action) {
         const cleanPayload = Object.fromEntries(
             Object.entries(action.payload || {}).filter(([_, v]) => v !== "" && v !== null && v !== undefined)
         );
-        const url = `http://localhost:5000/api/admin/scheduledCalls`;
+        const url = `https://averycare-backend.onrender.com/api/admin/scheduledCalls`;
 
         const response = yield call(axios.get, url, {
             headers: { Authorization: `Bearer ${token}` },
@@ -501,7 +501,7 @@ function* deleteScheduledCallSaga(action) {
         if (!token) throw new Error("No authorization token found");
         yield call(
             axios.delete,
-            `http://localhost:5000/api/admin/deleteScheduledCall/${action.payload}`, { headers: { Authorization: `Bearer ${token}` } }
+            `https://averycare-backend.onrender.com/api/admin/deleteScheduledCall/${action.payload}`, { headers: { Authorization: `Bearer ${token}` } }
         );
         yield put(deleteScheduledCallSuccess(action.payload));
     } catch (error) {

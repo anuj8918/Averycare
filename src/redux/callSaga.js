@@ -16,7 +16,7 @@ import {
   deleteScheduledCallFailure,
 } from "./callSlice";
 
-const API_BASE_URL = "http://localhost:5000/api/calls";
+const API_BASE_URL = "https://averycare-backend.onrender.com/api/calls";
 
 function* getAuthToken() {
   const token = localStorage.getItem("token");
